@@ -4,10 +4,12 @@ A tiny Windows app that keeps Microsoft Teams (and Windows) from marking you as 
 
 ## Run it
 
-- **Easiest:** download `KeepActive.exe` from the [Releases](../../releases) page and double-click it.
-- **From source:** `python keep_active.py` (Python 3.8+, no extra packages).
+1. Download **[KeepActive.exe](https://github.com/devashish1099/teams-fooler/releases/latest/download/KeepActive.exe)** (or from the [Releases](https://github.com/devashish1099/teams-fooler/releases) page).
+2. Double-click it. No install, no Python needed.
+3. If Windows shows "Windows protected your PC" (the exe isn't code-signed), click **More info → Run anyway**.
+4. Pick a method, set the interval, press **Start**. Press **Pause** to stop. Close the window to quit.
 
-Pick a method, set the interval, press **Start**. Press **Pause** to stop.
+From source instead: `python keep_active.py` (Python 3.8+, no extra packages).
 
 ## How it works
 
