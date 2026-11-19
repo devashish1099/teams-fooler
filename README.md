@@ -11,6 +11,37 @@ A tiny Windows app that keeps Microsoft Teams (and Windows) from marking you as 
 
 From source instead: `python keep_active.py` (Python 3.8+, no extra packages).
 
+## Alternatives (no exe)
+
+Both scripts are in [`scripts/`](scripts/). Stop either one with **Ctrl+C**.
+
+### PowerShell (Windows, nothing to install)
+
+[`scripts/keep-active.ps1`](scripts/keep-active.ps1) sends an F15 keypress every 2–4 minutes.
+
+- Right-click the file → **Run with PowerShell**, or
+- from a terminal in the `scripts` folder:
+
+  ```bat
+  powershell -ExecutionPolicy Bypass -File keep-active.ps1
+  powershell -ExecutionPolicy Bypass -File keep-active.ps1 -MinSeconds 60 -MaxSeconds 180
+  ```
+
+`-ExecutionPolicy Bypass` applies only to that run and doesn't change system settings.
+
+### Python command line (Windows or Linux)
+
+[`scripts/keep_active_cli.py`](scripts/keep_active_cli.py)
+
+```bash
+python keep_active_cli.py                      # F15 every 60-180 s
+python keep_active_cli.py --method mouse       # 1px mouse nudge instead
+python keep_active_cli.py --min 30 --max 120   # custom interval
+```
+
+- **Windows:** works with plain Python 3, no packages.
+- **Linux:** install xdotool first (`sudo apt install xdotool`). Works on X11 sessions. On Wayland, xdotool usually can't reset the system idle timer, so log in with an "X11"/"Xorg" session if it doesn't keep you active.
+
 ## How it works
 
 Teams goes Away after ~5 minutes without keyboard/mouse input (it reads the Windows idle timer).
